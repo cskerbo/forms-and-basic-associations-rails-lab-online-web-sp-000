@@ -49,6 +49,7 @@ class SongsController < ApplicationController
        genre = Genre.find(id)
        self.genres << genre
     end
+  end
 
   private
 

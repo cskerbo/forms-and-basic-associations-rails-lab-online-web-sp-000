@@ -6,7 +6,7 @@
   <%= f.label :artist_name %>
   <%= f.text_field :artist_name %><br>
   <%= f.label :genre %>
-  <%= f.collection_select :genre, Genre.all, :name, :name %>
+  <%= f.collection_select :song_genre_id, Genre.all, :name, :name %>
   <br />
 
   <%= f.submit %>

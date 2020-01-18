@@ -29,4 +29,18 @@ class Song < ActiveRecord::Base
     end
   end
 
+  def note_ids=(ids)
+    ids.each do |id|
+      id_num = id.chars.last.to_i
+      note = Note.find_or_create_by(id: id_num)
+      self.notes << note
+    end
+  end
+
+  def note_ids
+    self.notes.map do |note|
+      "song_notes_#{note.id}"
+    end
+  end
+
 end

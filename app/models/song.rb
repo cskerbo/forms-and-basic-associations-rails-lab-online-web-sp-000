@@ -23,24 +23,11 @@ class Song < ActiveRecord::Base
     notes.collect {|note| note.content}
   end
 
-  def note_contents=(notes)
+  def note_contents=(content)
     notes.each do |content|
       note = self.notes.build(content: content) unless content.empty?
     end
   end
 
-  def note_ids=(ids)
-    ids.each do |id|
-      id_num = id.chars.last.to_i
-      note = Note.find_or_create_by(id: id_num)
-      self.notes << note
-    end
-  end
-
-  def note_ids
-    self.notes.map do |note|
-      "song_notes_#{note.id}"
-    end
-  end
 
 end

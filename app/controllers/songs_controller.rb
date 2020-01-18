@@ -44,6 +44,12 @@ class SongsController < ApplicationController
     redirect_to songs_path
   end
 
+  def song_genre_ids=(ids)
+     ids.each do |id|
+       genre = Genre.find(id)
+       self.posts << post
+     end
+
   private
 
   def song_params

@@ -23,6 +23,7 @@ class Song < ActiveRecord::Base
     note_array = []
     self.notes.each do |note|
       note_array << note.content unless note.content.empty?
+    end
   end
 
   def note_contents=(content)

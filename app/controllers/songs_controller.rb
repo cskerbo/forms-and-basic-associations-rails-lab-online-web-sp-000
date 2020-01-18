@@ -44,16 +44,9 @@ class SongsController < ApplicationController
     redirect_to songs_path
   end
 
-  def song_genre_ids=(ids)
-     ids.each do |id|
-       genre = Genre.find(id)
-       self.genres << genre
-    end
-  end
-
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name, song_genre_ids: [])
+    params.require(:song).permit(:title, :artist_name, :genre_id)
   end
 end

@@ -47,7 +47,7 @@ class SongsController < ApplicationController
   def song_genre_ids=(ids)
      ids.each do |id|
        genre = Genre.find(id)
-       self.posts << post
+       self.genres << genre
      end
 
   private

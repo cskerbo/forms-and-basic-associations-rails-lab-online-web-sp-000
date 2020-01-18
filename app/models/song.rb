@@ -24,6 +24,7 @@ class Song < ActiveRecord::Base
     self.notes.each do |note|
       note_array << note.content unless note.content.empty?
     end
+    note_array
   end
 
   def note_contents=(content)
